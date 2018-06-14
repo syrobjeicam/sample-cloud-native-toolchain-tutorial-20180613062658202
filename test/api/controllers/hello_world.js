@@ -13,14 +13,14 @@ describe('controllers', function() {
       it('should return a default string', function(done) {
 
         request(server)
-          .get('/hello')
+          .get('/Hello')
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .expect(200)
           .end(function(err, res) {
             should.not.exist(err);
 
-            res.body.should.eql('Hello, stranger!');
+            res.body.should.eql('Hello There, stranger!');
 
             done();
           });
@@ -29,7 +29,7 @@ describe('controllers', function() {
       it('should accept a name parameter', function(done) {
 
         request(server)
-          .get('/hello')
+          .get('/Hello')
           .query({
             name: 'Scott'
           })
@@ -39,7 +39,7 @@ describe('controllers', function() {
           .end(function(err, res) {
             should.not.exist(err);
 
-            res.body.should.eql('Hello, Scott!');
+            res.body.should.eql('Hello There, Scott!');
 
             done();
           });
